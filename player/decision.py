@@ -1,16 +1,43 @@
 import random
 
-def make_decisom(params):
-    return 0
-    min_bet = params.get('min')
-    max_bet = params.get('max')
-    bet = random.choice([0, 1, 2,  3, 4, 5])
-    if min_bet:
-        #bet = min_bet
-        bet = random.choice([min_bet, min_bet, min_bet + 2])
-    if max_bet:
-        #bet = max_bet
-        bet = min_bet
-        #bet = random.choice([0, max_bet, max_bet])
-    print(bet)
-    return bet
+from player.utils import eval_cards
+
+
+class Decision:
+
+    def __init__(self, params):
+        self.min_bet = params.get('min')
+        self.can_raise = params.get('can_raise')
+        self.hand = params.get('hand')
+        self.table = params.get('table')
+        self.chance = eval_cards(self.hand, self.table)
+
+    def _fold(self):
+        return 0
+
+    def _bet(self, bet):
+        return bet
+
+    def _raise(self, bet):
+        bet = self.min_bet + bet
+        return bet
+
+    def _check(self):
+        return 0
+
+    def _call(self):
+        return self.min_bet
+
+    def make_decison(self):
+        if self.min_bet: # may fold, call or raise
+            if self.chance < 0.3:
+                return self._fold()
+            else:
+                if self.chance > 0.7 and self.can_raise:
+                    return self._raise(3)
+                return self._call()
+        else: # may check or bet
+            if self.chance < 0.5:
+                return self._check()
+            else:
+                return self._bet(2)
