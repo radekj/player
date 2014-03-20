@@ -28,3 +28,6 @@ TODO
 - validation tests
 - documentation
 - docstrings
+- add simple database for storing other players betting history for algorithm
+  enhancement purposes
+- setup file (port number configuration)
