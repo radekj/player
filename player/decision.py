@@ -11,6 +11,7 @@ class Decision:
         self.hand = params.get('hand')
         self.table = params.get('table')
         self.chance = eval_cards(self.hand, self.table)
+        self.limit = params.get('limit')
 
     def _fold(self):
         return 0
@@ -29,15 +30,18 @@ class Decision:
         return self.min_bet
 
     def make_decison(self):
+        print(self.chance)
         if self.min_bet: # may fold, call or raise
             if self.chance < 0.3:
                 return self._fold()
             else:
                 if self.chance > 0.7 and self.can_raise:
-                    return self._raise(3)
+                    bet = random.choice(range(1,self.limit))
+                    return self._raise(bet)
                 return self._call()
         else: # may check or bet
             if self.chance < 0.5:
                 return self._check()
             else:
-                return self._bet(2)
+                bet = random.choice(range(1,self.limit))
+                return self._bet(bet)
