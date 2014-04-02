@@ -11,7 +11,7 @@ Installation
 
 Use buildout from: https://github.com/radekj/player-buildout
 
-`Installation procedure <https://github.com/radekj/player-buildout/README.md>`_
+`Installation procedure <https://github.com/radekj/player-buildout/blob/master/README.md/>`_
 
 
 Technical description
@@ -27,7 +27,5 @@ TODO
 ====
 - validation tests
 - documentation
-- docstrings
 - add simple database for storing other players betting history for algorithm
   enhancement purposes
-- setup file (port number configuration)
