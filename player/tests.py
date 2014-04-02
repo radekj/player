@@ -52,7 +52,6 @@ class TestCase(unittest.TestCase):
         """ Requesting player with the default data """
         data = self.data
         r = self._get_response(data)
-        pass
 
 
 def test_main():
