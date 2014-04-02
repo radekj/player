@@ -45,10 +45,3 @@ case of *straight* or *colour* hands.
 Before accessing the game - the user **must ensure that all the tests passes**:
 
 `./bin/test`
-
-
-TODO
-----
-- validation tests
-- add simple database for storing other players betting history for algorithm
-  enhancement purposes

@@ -16,6 +16,7 @@ class Decision:
         self.table = params.get('table')
         self.chance = eval_cards(self.hand, self.table)
         self.limit = params.get('limit')
+        self.account = params.get('account')
 
     def _fold(self):
         """ Fold:
@@ -36,6 +37,8 @@ class Decision:
         You match the bet of a player who has already bet.
         (http://pokerterms.com/call.html)
         """
+        if self.min_bet >= self.account:
+            return 0
         return self.min_bet
 
     def _bet(self, bet):
@@ -43,6 +46,8 @@ class Decision:
         You wager an initial amount of money.
         (http://pokerterms.com/bet.html)
         """
+        if bet >= self.account:
+            return self.account
         return bet
 
     def _raise(self, bet):
@@ -51,6 +56,8 @@ class Decision:
         (http://pokerterms.com/raise.html)
         """
         bet = self.min_bet + bet
+        if bet >= self.account:
+            return self.account
         return bet
 
     def make_decison(self):
@@ -58,6 +65,8 @@ class Decision:
         This is the method that is called by the application engine.
         Modify the example code given below to win the game!
         """
+        if self.min_bet > self.account:    # not enought money to play
+            return self._fold()
         if self.min_bet:    # may fold, call or raise
             if self.chance < 0.3:
                 return self._fold()
