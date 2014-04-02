@@ -9,10 +9,10 @@ https://github.com/radekj/dealer-buildout
 Installation
 ============
 
-Use buildout from: https://github.com/radekj/player-buildout
+Use the [player-buildout](https://github.com/radekj/player-buildout) to install
+the Player application.
 
-`Installation procedure <https://github.com/radekj/player-buildout/blob/master/README.md/>`_
-
+[Installation description](https://github.com/radekj/player-buildout/blob/master/README.md/)
 
 Technical description
 =====================
