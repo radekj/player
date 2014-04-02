@@ -40,7 +40,7 @@ User can use the card's evaluation algorithm -
 the algorithm is not accurate, for example: it evaluates the strength
 of **current** set of cards without taking into account a potential cards
 that can appear on the table in the next phases, which is significant in
-*straight* or *colour* hands.
+case of *straight* or *colour* hands.
 
 Before accessing the game - the user **must ensure that all the tests passes**:
 
