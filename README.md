@@ -55,6 +55,9 @@ The Dealer application's params send in request:
 - `account` - (int) - the actual amount of coins in your account
 
 
+Tests
+-----
+
 Before accessing the game - the user **must ensure that all the tests passes**:
 
 `./bin/test`
