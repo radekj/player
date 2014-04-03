@@ -42,6 +42,21 @@ of **current** set of cards without taking into account a potential cards
 that can appear on the table in the next phases, which is significant in
 case of *straight* or *colour* hands.
 
+The Dealer application's params send in request:
+
+- `hand` - (list of tuples) - Your hand cards, example: `[('S', 'A'), ('H', '7')]` 
+  (Ace of spades and 7 of Hearts)
+- `table` - (list of tuples) - The cards on the table,
+  example: `[('D', '2'), ('H', '7'), ('H', 'Q')]` 
+- `min` - (int) - The minimal amount you must bet to stay in the game
+- `limit` - (int) - The maximal amount you can bet
+- `can_raise` - (bool) - The iformation if you can raise the bet in this turn
+- `pot` - (int) - the actual amount of coins in the pot
+- `account` - (int) - the actual amount of coins in your account
+
+
 Before accessing the game - the user **must ensure that all the tests passes**:
 
 `./bin/test`
+
+
