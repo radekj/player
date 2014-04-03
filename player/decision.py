@@ -82,3 +82,20 @@ class Decision:
             else:
                 bet = random.choice(range(1, self.limit))
                 return self._bet(bet)
+
+def chellengers_cards(params):
+    """
+    The method for processing the information about the cards of final
+    challengers and table cards.
+
+    This enable to adapt the algorithm to take into account other players'
+    strategies.
+
+    Example params:
+    {
+        'player3': [['S', '4'], ['S', 'Q']],
+        'player1': [['C', 'J'], ['D', '10']],
+        'table': [['H', '9'], ['D', 'K'], ['H', 'J'], ['C', '4'], ['S', 'A']]
+    }
+    """
+    return

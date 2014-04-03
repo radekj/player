@@ -54,6 +54,10 @@ The Dealer application's params send in request:
 - `pot` - (int) - the actual amount of coins in the pot
 - `account` - (int) - the actual amount of coins in your account
 
+After each game the information about the cards of the challenger players and
+the table cards is sent to the player app to enable to adapt the algorithm
+to take into account other players' strategies. The `chellengers_cards` 
+function is the hadler for processing this information.
 
 Tests
 -----

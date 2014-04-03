@@ -1,8 +1,10 @@
 import configparser
 import json
 import os
+
 from wsgiref.simple_server import make_server
-from player.decision import Decision
+
+from player.decision import Decision, chellengers_cards
 
 
 def application(environ, start_response):
@@ -11,8 +13,11 @@ def application(environ, start_response):
     request_body_size = int(environ['CONTENT_LENGTH'])
     request_body = environ['wsgi.input'].read(request_body_size)
     params = json.loads(request_body.decode('utf-8'))
-    decision = Decision(params)
-    result = decision.make_decison()
+    if environ.get('PATH_INFO') == '/chellengers_cards':
+        result = chellengers_cards(params)
+    else:
+        decision = Decision(params)
+        result = decision.make_decison()
     response = json.dumps(result)
     return [response.encode('utf-8')]
 

@@ -107,6 +107,21 @@ class TestCase(unittest.TestCase):
         data['account'] = 1
         self._validate_response(data)
 
+    def test_chellengers_cards(self):
+        """ Testing the response for the sample data """
+        data = {
+            'player3': [['S', '4'], ['S', 'Q']],
+            'player1': [['C', 'J'], ['D', '10']],
+            'table': [['H', '9'], ['D', 'K'], ['H', 'J'], ['C', '4'], ['S', 'A']]
+        }
+        conn = http.client.HTTPConnection('%s:%s' % (self.host, self.port))
+        params = json.dumps(data)
+        headers = {'Content-type': self.content_type}
+        conn.request('POST', '/chellengers_cards', params, headers)
+        response = conn.getresponse()
+        msg = 'Server response error'
+        assert (response.status == 200), msg
+
 
 def test_main():
     test_support.run_unittest(TestCase,)
