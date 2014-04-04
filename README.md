@@ -91,7 +91,8 @@ Example `chellengers_cards` request params:
 Tests
 -----
 
-Before accessing the game - the user **must ensure that all the tests passes**:
+Before accessing the game - the user **must ensure that all the tests pass**
+by running script:
 
 `./bin/test`
 
