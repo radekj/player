@@ -84,6 +84,7 @@ class Decision:
                 bet = random.choice(range(1, self.limit))
                 return self._bet(bet)
 
+
 def chellengers_cards(params):
     """
     The method for processing the information about the cards of final
