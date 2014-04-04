@@ -55,6 +55,7 @@ The Dealer application's params send in request:
 - `can_raise` - (bool) - The iformation if you can raise the bet in this turn
 - `pot` - (int) - the actual amount of coins in the pot
 - `account` - (int) - the actual amount of coins in your account
+- `active_players` - (list) - the list of active players ids in current game
 
 Example params:
 
@@ -66,7 +67,8 @@ Example params:
         'hand': [['S', 'K'], ['D', '8']],
         'table': [['C', '3'], ['C', 'A'], ['S', '7'], ['C', '8'], ['S', '3']],
         'account': 396,
-        'limit': 20
+        'limit': 20,
+        'active_players': ['player1', 'player2'],
     }
 ```
 

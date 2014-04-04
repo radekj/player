@@ -17,6 +17,7 @@ class Decision:
         self.chance = eval_cards(self.hand, self.table)
         self.limit = params.get('limit')
         self.account = params.get('account')
+        self.active_players = params.get('active_players')
 
     def _fold(self):
         """ Fold:
