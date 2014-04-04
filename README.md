@@ -31,8 +31,10 @@ Game rules
 
 The game's rules are very close to the
 [rules of Texas hold'em](http://en.wikipedia.org/wiki/Texas_hold_%27em#Rules)
-variation of the standard card game of poker. The only main difference is
-that the maximal bet is limited - there is no possibility of making *all-in* bet.
+variation of the standard card game of poker.
+
+The only main rules difference is that the maximal bet and rinse is
+**limited** - there is no possibility of making *all-in* bet.
 
 The objective is to modify the decision calculating algorithm to win the game.
 User can use the card's evaluation algorithm -
@@ -54,10 +56,37 @@ The Dealer application's params send in request:
 - `pot` - (int) - the actual amount of coins in the pot
 - `account` - (int) - the actual amount of coins in your account
 
-After each game the information about the cards of the challenger players and
-the table cards is sent to the player app to enable to adapt the algorithm
-to take into account other players' strategies. The `chellengers_cards` 
-function is the hadler for processing this information.
+Example params:
+
+```
+    {
+        'can_raise': False,
+        'pot': 710,
+        'min': 12,
+        'hand': [['S', 'K'], ['D', '8']],
+        'table': [['C', '3'], ['C', 'A'], ['S', '7'], ['C', '8'], ['S', '3']],
+        'account': 396,
+        'limit': 20
+    }
+```
+
+After each game the information about the cards of the challenger players (those
+that were in the game by the end of it) and the table cards is sent to the
+player app to enable to adapt the algorithm to take into account other players'
+strategies. The `chellengers_cards` function is the hadler for processing this
+information.
+
+Example `chellengers_cards` request params:
+```
+    {
+        'table': [['C', '3'], ['C', 'A'], ['S', '7'], ['C', '8'], ['S', '3']],
+        'player9': [['D', 'K'], ['D', 'A']],
+        'player5': [['H', '5'], ['C', '5']],
+        'player4': [['H', 'J'], ['D', 'Q']],
+        'player7': [['S', '6'], ['H', '6']],
+        'player3': [['S', 'K'], ['D', '8']]
+    }
+```
 
 Tests
 -----
